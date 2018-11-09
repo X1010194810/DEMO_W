@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DEMO</title>
+  <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue-router/2.7.0/vue-router.min.js"></script>
+  <link rel="stylesheet" href="index.css">
+  <script src="vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+  <div class="main">
+    <div class="left">
+      <div class="left_list">
+        <div>
+          <router-link  to="/view1">123</router-link>
+        </div>
+        <div><router-link  to="/view2">123</router-link></div>
+        <div><router-link  to="/first">123</router-link></div>
+        <div><router-link  to="/first">123</router-link></div>
+
+      </div>
+    </div>
+    <div class="top">
+      <div>456</div>
+    </div>
+    <div class="bottom">
+      <div>
+        <router-view>
+          <table border="1">
+            <tr>
+              <th>Month</th>
+              <th>Savings</th>
+              <th>Month</th>
+              <th>Savings</th>
+              <th>Month</th>
+            </tr>
+            <tr>
+              <td>January</td>
+              <td>$100</td>
+              <td>January</td>
+              <td>$100</td>
+              <td>January</td>
+            </tr>
+            <tr>
+              <td>January</td>
+              <td>$100</td>
+              <td>January</td>
+              <td>$100</td>
+              <td>January</td>
+            </tr>
+            <tr>
+              <td>January</td>
+              <td>$100</td>
+              <td>January</td>
+              <td>$100</td>
+              <td>January</td>
+            </tr>
+            <tr>
+              <td>January</td>
+              <td>$100</td>
+              <td>January</td>
+              <td>$100</td>
+              <td>January</td>
+            </tr>
+          </table>
+        </router-view>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!--<p>-->
+  <!--&lt;!&ndash; 使用 router-link 组件来导航. &ndash;&gt;-->
+  <!--&lt;!&ndash; 通过传入 `to` 属性指定链接. &ndash;&gt;-->
+  <!--&lt;!&ndash; <router-link> 默认会被渲染成一个 `<a>` 标签 &ndash;&gt;-->
+  <!--<router-link to="/foo">Go to Foo</router-link>-->
+  <!--<router-link to="/bar">Go to Bar</router-link>-->
+  <!--</p>-->
+  <!--&lt;!&ndash; 路由出口 &ndash;&gt;-->
+  <!--&lt;!&ndash; 路由匹配到的组件将渲染在这里 &ndash;&gt;-->
+  <!--<router-view></router-view>-->
+</div>
+
+<script>
+  // import view1 from '@/view1/view1.html';
+  // import view2 from '@/view2/view2.html';
+  var view1 = { template: '<p>this is first page</p>' };
+  var view2 = { template: '<p>this is second page</p>' };
+  Vue.use(Router)
+  // 2. 定义路由
+  // 每个路由应该映射一个组件。 其中"component" 可以是
+  // 通过 Vue.extend() 创建的组件构造器，
+  // 或者，只是一个组件配置对象。
+  // 我们晚点再讨论嵌套路由。
+  const routes = [
+    { path: '/view1', component: view1 },
+    { path: '/view2', component: view2 }
+  ]
+
+  // 3. 创建 router 实例，然后传 `routes` 配置
+  // 你还可以传别的配置参数, 不过先这么简单着吧。
+  const router = new VueRouter({
+    routes // （缩写）相当于 routes: routes
+  })
+
+  // 4. 创建和挂载根实例。
+  // 记得要通过 router 配置参数注入路由，
+  // 从而让整个应用都有路由功能
+  const app = new Vue({
+    router
+  }).$mount('#app')
+
+  // 现在，应用已经启动了！
+</script>
+</body>
+</html>
